@@ -1,0 +1,184 @@
+#----------------------------------------------------------------------
+Programming Assignment 03b
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Demonstrate working ASL parser using ply.
+
+#----------------------------------------------------------------------
+Background:
+
+  * Once a working ASL tokenizer has been created, an ASL parse
+    tree generator can be constructed.
+
+  * The parse structure for ASL is supplied in the ASL Language
+    Reference Manual.
+
+  * The latest version of the ASL LRM will always be available in
+    the Course Materials section on Blackboard.
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_03b_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your
+     NetID.  (Your NetID is three letters followed by four or
+     five digits.  The directory name will now be something
+     like 'HMWK_03b_abc1234'.)
+
+  4. Look in that directory.
+
+  5. Change the header lines in the skeleton file hmwk_03b.py.
+     (Put your name on line 1, your NetID on line 2, and the
+      date on line 3.)
+
+  6. (Yes, the instructor is still a micromanaging, obsessive-
+      compulsive, nit-picking nutcase.)
+
+  7. Before changing the template, try it out on the
+     templateTest.txt file.  You should get the same results
+     as shown in templateTestResults.txt.
+
+  8. There are three TODO spots in the template file, line 8
+     for the parse tree class package references, line 15 for
+     the tokenizer definitions, and line 44 for the parser
+     routine definitions.  Deal with them.
+
+     Each of the these TODO sections includes some sample
+     definitions or routines as examples.  (The parse tree
+     class samples are in the ParseTree subdirectory.)
+
+     Replace the samples with your own code.
+
+  9. Included with the template file is a data file
+     statementTest.asl on which to try your parser.  Your
+     parser should get the same results as shown in
+     statementTestResults.txt.
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_03b_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on Blackboard
+as your results for this assignment.
+
+Your submission should be a zipfile that has exactly one item in
+it, a directory named 'hmwk_03b_abc1234' (where 'abc1234' is YOUR
+NetID).  Inside that directory should be the source files for
+your solution, hmwk_03b.py (and any other files you might create).
+
+Your submission will be run on another file of test data.  Your
+solution will score a points for each syntactic unit that generates
+the correct result (or error message, as required).
+
+#----------------------------------------------------------------------
+Hints:
+  1. Follow the structure of the parser for the calculator
+     example from Homework 02.  Write your own p_<nnn>() parse
+     routines in a similar fashion but following the ASL
+     syntactic production rules.
+
+  2. Be careful, though, in that the production rules given in
+     the ASL LRM are for explanatory purposes only.  You will
+     have to make some alterations to avoid getting reduce/reduce
+     or shift/reduce conflicts.  (The 'reference' solution has no
+     conflicts, but there were some generalizations made to the
+     grammar to achieve this.)
+
+     (Semantic processing can be used to deal with the
+      generalizations necessary to avoid the parsing conflicts.
+      We will discuss this in class.)
+
+  3. DO NOT try to write all of the ASL production rules at
+     once.  Start small until you see how to do it and expand
+     from there.  For example, here's a tiny subset of ASL's
+     production rules:
+
+        block       : '{' block_items '}'
+        block_item  : statement
+        block_items : [ block_item { ';' block_item } ]
+        expression  : INTEGER
+                    | REAL
+        lvalue      : ID
+        program     : block
+        statement   : lvalue '=' expression
+
+     This subset has only one statement, the assignment; only
+     one kind of lvalue, the ID; only one kind of expression,
+     the numeric literal; and no declarations at all.
+
+     To get you started, here is the parse routine that I made
+     up for the program production rule of this tiny subset:
+
+        def p_program( p ) :
+          'program : block'
+
+          p[0] = PT_Program( p[1] )
+
+     Here are the parse tree classes that I made up for this
+     tiny subset along with the parameter signatures of their
+     __init__() methods:
+
+        class PT_Statement_Assign() :
+          def __init__( self, lvalue, expression ) :
+
+        class PT_Block() :
+          def __init__( self, items ) :
+
+        class PT_Expression_Literal() :
+          def __init__( self, kind, value ) :
+
+        class PT_LValue_ID() :
+          def __init__( self, name ) :
+
+        class PT_Program() :
+          def __init__( self, block ) :
+
+     Finish writing the __init__() and dump() routines for each
+     of these classes and use them in the p_<nnn>() parse routines
+     you write for the production rules in the tiny subset above.
+
+     You shouldn't need any other parse tree classes.
+
+  4. Once you get the tiny subset working, try it on tinyTest.asl
+     and ensure that you get the same results as in
+     tinyTestResults.txt.  Once you get this far, you can then
+     just keep adding additional production rules and parse tree
+     classes to complete the rest of the ASL grammar.
+
+     My suggestion here is to grow the definition of expression
+     step by step until you can parse (and dump) the complete
+     ASL expression syntax.
+
+     Once that is done, add the statements one-by-one until you
+     can parse (and dump) all ASL statement types.
+
+     The same for the declaration types ...
+
+  5. VERY IMPORTANT:  Write a small test for EACH BIT that you
+     add to your parser and TEST, TEST, TEST at each step to
+     ensure that you are parsing and dumping correctly.  Do
+     NOT just write a bunch of code and hope it's going to work.
+
+  6. The statementTest.asl has samples of a large portion of the
+     syntax of ASL, but don't rely on it as your only test.
+     Write individual tests for each bit of ASL syntax as you
+     implement it.
+
+  7. Finally, ensure your output for the sample data file
+     statementTest.asl matches the output shown in
+     statementTestResults.txt.
+
+     (Remember, 'matches' means 'is identical to'.  The output should
+      show no differences whatsoever to the contents of the results
+      file.  Your work is going to be checked by a program, so its
+      output has to match EXACTLY.)
+
+  8. Ensure your submission is packaged EXACTLY as described above.
+     Submissions in the wrong format score ZERO points.
+
+#----------------------------------------------------------------------
