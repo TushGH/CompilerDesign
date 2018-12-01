@@ -4,6 +4,8 @@
 #---------#---------#---------#---------#---------#--------#
 import ply.yacc
 import ply.lex
+import os
+import sys
 
 # TODO:
 # Put your ASL parse tree classes in this package.
@@ -321,14 +323,19 @@ def p_error( p ) :
 def _main( inputFile ) :
   with open( inputFile, 'r' ) as fp :
     data = fp.read()
-
+  a = os.path.basename(sys.argv[0]) # getting the file name
+  #print(a[:-3]) # getting rid of etension
+  parseFile = a[:-3] + ".parse"
+  codeFile = a[:-3] + ".s"
+  #print(parseFile)
+  #print(codeFile)
   try :
     _  = ply.lex.lex()
     parser = ply.yacc.yacc()
     value = parser.parse( data )
 
 
-    with open("hmwk_03.parse", 'w') as fp:
+    with open(parseFile, 'w') as fp:
         print( 'Parse returns ...' , file = fp )
         value.dump(fp = fp)
 
@@ -339,6 +346,11 @@ def _main( inputFile ) :
         print("caught an exception")
         print(str(e))
         raise
+
+    with open(codeFile, 'w') as fp:
+
+        value.codeGen(fp = fp)
+
 
 
   except ValueError :

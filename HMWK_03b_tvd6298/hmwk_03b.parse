@@ -1,0 +1,23 @@
+Parse returns ...
+PROGRAM
+  {
+    WRITE
+      ARG
+        LITERAL STRING  'simpleWrite' 
+    WRITE
+      ARG
+        LITERAL INTEGER  '1' 
+    WRITE
+      ARG
+        LITERAL REAL  '2.3' 
+    WRITE
+      ARG
+        LITERAL STRING  'Integer : ' 
+      ARG
+        LITERAL INTEGER  '4' 
+    WRITE
+      ARG
+        LITERAL STRING  'Real    : ' 
+      ARG
+        LITERAL REAL  '5.6' 
+  }

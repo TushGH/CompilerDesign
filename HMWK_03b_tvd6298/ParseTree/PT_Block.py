@@ -9,6 +9,11 @@ class PT_Block() :
         for a in self.m_block_items:
             a.semanticCheack()
 
+    def codeGen(self , fp=sys.stdout):
+        for a in self.m_block_items :
+            a.codeGen(fp = fp)
+
+
     def dump( self, indent = 0 , fp=sys.stdout ) :
       print( (INDENTSTR*indent) + '{' , file = fp )
       for a in self.m_block_items :
