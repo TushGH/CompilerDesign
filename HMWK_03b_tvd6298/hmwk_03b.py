@@ -327,9 +327,19 @@ def _main( inputFile ) :
     parser = ply.yacc.yacc()
     value = parser.parse( data )
 
-    print( 'Parse returns ...' )
 
-    value.dump()
+    with open("hmwk_03.parse", 'w') as fp:
+        print( 'Parse returns ...' , file = fp )
+        value.dump(fp = fp)
+
+    try :
+        value.semanticCheack();
+
+    except Exception as e:
+        print("caught an exception")
+        print(str(e))
+        raise
+
 
   except ValueError :
     print( 'Error during processing.  Abort.' )

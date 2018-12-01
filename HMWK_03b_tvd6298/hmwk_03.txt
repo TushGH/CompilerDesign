@@ -1,0 +1,12 @@
+PROGRAM
+  {
+    WRITE
+      EXPRESSION
+        LITERAL INTEGER  '300' 
+    WRITE
+      EXPRESSION
+        LITERAL REAL  '2.5' 
+    WRITE
+      EXPRESSION
+        LITERAL STRING  'Hello$$~~``' 
+  }
