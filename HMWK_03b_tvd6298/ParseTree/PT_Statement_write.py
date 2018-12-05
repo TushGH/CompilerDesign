@@ -10,8 +10,8 @@ class PT_Statement_write() :
     def codeGen(self , fp=sys.stdout):
         for e in self.m_exp :
             e.codeGen(fp = fp)
-
-
+        print( 'call  writeNewLine', file = fp )
+        print( file = fp )
 
     def dump( self, indent = 0 , fp=sys.stdout) :
         print((INDENTSTR*indent) + 'WRITE' , file = fp)

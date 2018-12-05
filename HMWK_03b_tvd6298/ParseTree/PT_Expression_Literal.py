@@ -20,8 +20,8 @@ class PT_Expression_Literal() :
             print( f"movq $STRLIT{PT_Expression_Literal.Stringcount}, %rdi", file = fp )
             PT_Expression_Literal.Stringcount = PT_Expression_Literal.Stringcount + 1
             print( 'call  writeString', file = fp )
-            print( 'call  writeNewLine', file = fp )
-            print( file = fp )
+            #print( 'call  writeNewLine', file = fp )
+            #print( file = fp )
         if self.m_kind == "INTEGER" :
             print( '.data', file = fp )
             print( '.align 4', file = fp )
@@ -30,18 +30,18 @@ class PT_Expression_Literal() :
             print( f"movq $INTLIT{PT_Expression_Literal.Intcount}, %edi", file = fp )
             PT_Expression_Literal.Intcount = PT_Expression_Literal.Intcount + 1
             print( 'call  writeInteger', file = fp )
-            print( 'call  writeNewLine', file = fp )
-            print( file = fp )
+            #print( 'call  writeNewLine', file = fp )
+            #print( file = fp )
         if self.m_kind == "REAL":
             print( '.data', file = fp )
             print( '.align 8', file = fp )
             print( f"REALIT{PT_Expression_Literal.Realcount}: .double {self.m_value} ", file = fp )
             print( '.text', file = fp )
             print( f"movq $REALIT{PT_Expression_Literal.Realcount}, %xmm0", file = fp )
-            PT_Expression_Literal.Realcount = PT_Expression_Literal.Realcount + 1 
+            PT_Expression_Literal.Realcount = PT_Expression_Literal.Realcount + 1
             print( 'call  writeReal', file = fp )
-            print( 'call  writeNewLine', file = fp )
-            print( file = fp )
+            #print( 'call  writeNewLine', file = fp )
+            #print( file = fp )
 
     def semanticCheack(self) :
            #self.m_block.semanticCheack()

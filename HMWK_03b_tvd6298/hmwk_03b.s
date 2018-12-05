@@ -35,8 +35,6 @@ STRLIT1: .asciz "Integer : "
 .text
 movq $STRLIT1, %rdi
 call  writeString
-call  writeNewLine
-
 .data
 .align 4
 INTLIT1: .int 4 
@@ -51,8 +49,6 @@ STRLIT2: .asciz "Real    : "
 .text
 movq $STRLIT2, %rdi
 call  writeString
-call  writeNewLine
-
 .data
 .align 8
 REALIT1: .double 5.6 
