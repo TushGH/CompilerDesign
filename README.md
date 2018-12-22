@@ -11,7 +11,7 @@ Note: <br>
 1]This Compiler is used to print 3 types of literals 1) String 2) Integer 3)float <br>
 2] The file extension for the program is .asl<br>
 3] It requires <b>Python3</b> working environment<br>
-4] It requires gcc compiler
+4] It requires gcc compiler<br>
 5] It generates the parse tree in hmwk_04b.parse file<br>
 6] The Code (Assembly code generated) is in hmwk_04b.s file<br>
 
