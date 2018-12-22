@@ -1,0 +1,6 @@
+Parse returns ...
+PROGRAM
+  HEADER
+    ('INTEGER', '123')
+  HEADER
+    ('IDENTIFIER', 'fred')

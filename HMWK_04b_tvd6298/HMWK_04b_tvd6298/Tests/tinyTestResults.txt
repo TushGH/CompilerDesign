@@ -1,0 +1,14 @@
+Parse returns ...
+PROGRAM
+  {
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        LITERAL INTEGER '1'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'b'
+      EXPRESSION
+        LITERAL REAL '2.3'
+  }

@@ -1,0 +1,512 @@
+Parse returns ...
+PROGRAM
+  {
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        LITERAL INTEGER '0123'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'b'
+      EXPRESSION
+        LITERAL INTEGER '00'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        LITERAL INTEGER '999'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        LITERAL REAL '0.0'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'b'
+      EXPRESSION
+        LITERAL REAL '0.'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        LITERAL REAL '9.e-12'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'd'
+      EXPRESSION
+        LITERAL REAL '8.7E+4'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'e'
+      EXPRESSION
+        LITERAL REAL '6.54e3'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        LITERAL STRING ''
+    ASSIGN
+      LVALUE
+        LVALUE ID 'b'
+      EXPRESSION
+        LITERAL STRING 'abc'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        LVALUE ID 'b'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        LVALUE ARRAY SUBSCRIPT
+          LVALUE ID 'd'
+          LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'f'
+      EXPRESSION
+        LVALUE RECORD COMPONENT
+          LVALUE ID 'g'
+          COMPONENT 'h'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'i'
+      EXPRESSION
+        LVALUE RECORD COMPONENT
+          LVALUE RECORD COMPONENT
+            LVALUE ARRAY SUBSCRIPT
+              LVALUE RECORD COMPONENT
+                LVALUE ID 'j'
+                COMPONENT 'k'
+              LVALUE ID 'l'
+            COMPONENT 'm'
+          COMPONENT 'n'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        LVALUE ID 'b'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        LVALUE ID 'd'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'e'
+      EXPRESSION
+        LVALUE ID 'f'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '+'
+          LITERAL INTEGER '1'
+          BINARYOP '+'
+            LITERAL INTEGER '2'
+            LVALUE ID 'b'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '+'
+          BINARYOP '+'
+            LITERAL INTEGER '1'
+            LITERAL INTEGER '2'
+          LVALUE ID 'b'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        BINARYOP '+'
+          LITERAL INTEGER '2'
+          BINARYOP '+'
+            LITERAL INTEGER '3'
+            BINARYOP '+'
+              LITERAL INTEGER '4'
+              LVALUE ID 'd'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        BINARYOP '+'
+          BINARYOP '+'
+            BINARYOP '+'
+              LITERAL INTEGER '2'
+              LITERAL INTEGER '3'
+            LITERAL INTEGER '4'
+          LVALUE ID 'd'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'e'
+      EXPRESSION
+        BINARYOP '+'
+          LITERAL INTEGER '3'
+          BINARYOP '+'
+            LITERAL INTEGER '4'
+            BINARYOP '+'
+              LITERAL INTEGER '5'
+              BINARYOP '+'
+                LITERAL INTEGER '6'
+                LVALUE ID 'f'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'e'
+      EXPRESSION
+        BINARYOP '+'
+          BINARYOP '+'
+            BINARYOP '+'
+              BINARYOP '+'
+                LITERAL INTEGER '3'
+                LITERAL INTEGER '4'
+              LITERAL INTEGER '5'
+            LITERAL INTEGER '6'
+          LVALUE ID 'f'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        UNARYOP '-'
+          LVALUE ID 'b'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        UNARYOP '-'
+          UNARYOP '-'
+            LVALUE ID 'b'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        UNARYOP 'not'
+          LVALUE ID 'd'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'c'
+      EXPRESSION
+        UNARYOP 'not'
+          UNARYOP 'not'
+            LVALUE ID 'd'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '+'
+          LVALUE ID 'b'
+          LVALUE ID 'c'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'd'
+      EXPRESSION
+        BINARYOP '-'
+          LVALUE ID 'e'
+          LVALUE ID 'f'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'g'
+      EXPRESSION
+        BINARYOP '*'
+          LVALUE ID 'h'
+          LVALUE ID 'j'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'k'
+      EXPRESSION
+        BINARYOP '/'
+          LVALUE ID 'l'
+          LVALUE ID 'm'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'n'
+      EXPRESSION
+        BINARYOP 'div'
+          LVALUE ID 'o'
+          LVALUE ID 'p'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'q'
+      EXPRESSION
+        BINARYOP 'mod'
+          LVALUE ID 'r'
+          LVALUE ID 's'
+    ASSIGN
+      LVALUE
+        LVALUE ID 't'
+      EXPRESSION
+        BINARYOP '*'
+          UNARYOP '-'
+            LVALUE ID 'u'
+          LVALUE ID 'v'
+    ASSIGN
+      LVALUE
+        LVALUE ID 't'
+      EXPRESSION
+        BINARYOP '/'
+          UNARYOP '-'
+            LVALUE ID 'u'
+          LVALUE ID 'v'
+    ASSIGN
+      LVALUE
+        LVALUE ID 't'
+      EXPRESSION
+        BINARYOP 'mod'
+          UNARYOP '-'
+            LVALUE ID 'u'
+          LVALUE ID 'v'
+    ASSIGN
+      LVALUE
+        LVALUE ID 't'
+      EXPRESSION
+        BINARYOP 'div'
+          UNARYOP '-'
+            LVALUE ID 'u'
+          LVALUE ID 'v'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '+'
+          LVALUE ID 'x'
+          BINARYOP '*'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '+'
+          LVALUE ID 'x'
+          BINARYOP '/'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '+'
+          LVALUE ID 'x'
+          BINARYOP 'mod'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '+'
+          LVALUE ID 'x'
+          BINARYOP 'div'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '-'
+          LVALUE ID 'x'
+          BINARYOP '*'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '-'
+          LVALUE ID 'x'
+          BINARYOP '/'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '-'
+          LVALUE ID 'x'
+          BINARYOP 'mod'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'w'
+      EXPRESSION
+        BINARYOP '-'
+          LVALUE ID 'x'
+          BINARYOP 'div'
+            LVALUE ID 'y'
+            LVALUE ID 'z'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '<'
+          BINARYOP '+'
+            LVALUE ID 'b'
+            LVALUE ID 'c'
+          BINARYOP '-'
+            LVALUE ID 'd'
+            LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '<='
+          BINARYOP '+'
+            LVALUE ID 'b'
+            LVALUE ID 'c'
+          BINARYOP '-'
+            LVALUE ID 'd'
+            LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '=='
+          BINARYOP '+'
+            LVALUE ID 'b'
+            LVALUE ID 'c'
+          BINARYOP '-'
+            LVALUE ID 'd'
+            LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '<>'
+          BINARYOP '+'
+            LVALUE ID 'b'
+            LVALUE ID 'c'
+          BINARYOP '-'
+            LVALUE ID 'd'
+            LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '>='
+          BINARYOP '+'
+            LVALUE ID 'b'
+            LVALUE ID 'c'
+          BINARYOP '-'
+            LVALUE ID 'd'
+            LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        BINARYOP '>'
+          BINARYOP '+'
+            LVALUE ID 'b'
+            LVALUE ID 'c'
+          BINARYOP '-'
+            LVALUE ID 'd'
+            LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'f'
+      EXPRESSION
+        BINARYOP 'or'
+          BINARYOP 'and'
+            UNARYOP 'not'
+              BINARYOP '<'
+                BINARYOP '-'
+                  LVALUE ID 'g'
+                  LVALUE ID 'h'
+                BINARYOP '+'
+                  LVALUE ID 'i'
+                  LVALUE ID 'j'
+            BINARYOP '>'
+              BINARYOP '-'
+                LVALUE ID 'k'
+                LVALUE ID 'l'
+              BINARYOP '+'
+                LVALUE ID 'm'
+                LVALUE ID 'n'
+          BINARYOP 'and'
+            BINARYOP '<='
+              BINARYOP '+'
+                LVALUE ID 'o'
+                LVALUE ID 'p'
+              BINARYOP '-'
+                LVALUE ID 'q'
+                LVALUE ID 'r'
+            BINARYOP '>='
+              BINARYOP '+'
+                LVALUE ID 's'
+                LVALUE ID 't'
+              BINARYOP '-'
+                LVALUE ID 'u'
+                LVALUE ID 'v'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'a'
+      EXPRESSION
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'b'
+          ARG
+            LVALUE ID 'c'
+          ARG
+            LVALUE ID 'd'
+          ARG
+            LVALUE ID 'e'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'f'
+      EXPRESSION
+        FUNCCALL
+          OPERATOR
+            FUNCCALL
+              OPERATOR
+                LVALUE ID 'g'
+              ARG
+                FUNCCALL
+                  OPERATOR
+                    LVALUE ID 'h'
+                  ARG
+                    FUNCCALL
+                      OPERATOR
+                        LVALUE ID 'i'
+                      ARG
+                        LVALUE ID 'k'
+          ARG
+            LITERAL INTEGER '1'
+          ARG
+            LITERAL INTEGER '2'
+          ARG
+            LITERAL REAL '3.4'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'l'
+      EXPRESSION
+        ARRAY_CONSTRUCTOR
+          ELEMENT_TYPE ('TypeExpr_ID', 'integer')
+          INIT: NUMBER
+            LITERAL INTEGER '10'
+          OF
+            LVALUE ID 'm'
+          INIT: NUMBER
+            BINARYOP '-'
+              LVALUE ID 'n'
+              LVALUE ID 'o'
+          OF
+            BINARYOP '+'
+              LVALUE ID 'p'
+              LVALUE ID 'q'
+    ASSIGN
+      LVALUE
+        LVALUE ID 'r'
+      EXPRESSION
+        RECORD_CONSTRUCTOR 'rectype'
+          INIT: 's'
+          VALUE
+            LVALUE ID 't'
+          INIT: 'u'
+          VALUE
+            BINARYOP '+'
+              LVALUE ID 'v'
+              BINARYOP '*'
+                LVALUE ID 'w'
+                LVALUE ID 'z'
+  }

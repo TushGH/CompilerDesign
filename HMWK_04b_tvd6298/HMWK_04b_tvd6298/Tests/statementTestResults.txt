@@ -1,0 +1,172 @@
+Parse returns ...
+PROGRAM
+  {
+    {
+      ASSIGN
+        LVALUE
+          LVALUE RECORD COMPONENT
+            LVALUE ARRAY SUBSCRIPT
+              LVALUE RECORD COMPONENT
+                LVALUE ARRAY SUBSCRIPT
+                  LVALUE ID 'a'
+                  LVALUE ID 'b'
+                COMPONENT 'c'
+              LITERAL INTEGER '3'
+            COMPONENT 'whatever'
+        EXPRESSION
+          BINARYOP '+'
+            BINARYOP '+'
+              LITERAL INTEGER '1'
+              LITERAL INTEGER '2'
+            LITERAL REAL '12.34'
+    }
+    FUNCCALL
+      OPERATOR
+        LVALUE ID 'someFunction'
+      ARG
+        LVALUE ID 'arg0'
+    FUNCCALL
+      OPERATOR
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'fctReturningFct'
+      ARG
+        LVALUE ID 'arg1'
+      ARG
+        LVALUE ID 'arg2'
+      ARG
+        LVALUE ID 'arg3'
+    READ
+      ARG
+        LVALUE ID 'lvalue1'
+      ARG
+        LVALUE ARRAY SUBSCRIPT
+          LVALUE ID 'lvalue2'
+          BINARYOP '+'
+            LITERAL INTEGER '1'
+            BINARYOP '*'
+              LITERAL INTEGER '2'
+              LITERAL INTEGER '3'
+      ARG
+        LVALUE RECORD COMPONENT
+          LVALUE ID 'lvalue3'
+          COMPONENT 'component'
+      ARG
+        LVALUE RECORD COMPONENT
+          LVALUE ARRAY SUBSCRIPT
+            LVALUE ID 'lvalue4'
+            LVALUE ID 'a'
+          COMPONENT 'component'
+    WRITE
+      ARG
+        LITERAL STRING 'A string'
+      ARG
+        BINARYOP '+'
+          LITERAL REAL '56.78'
+          BINARYOP '*'
+            LITERAL REAL '90.12'
+            LITERAL REAL '34.56'
+    IF
+      LVALUE ID 'expr'
+    THEN
+      EXIT
+    FI
+    IF
+      LVALUE ID 'expr1'
+    THEN
+      IF
+        LVALUE ID 'expr2'
+      THEN
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'foo'
+      ELSE
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'bar'
+      FI
+    FI
+    IF
+      LVALUE ID 'expr'
+    THEN
+      {
+        ASSIGN
+          LVALUE
+            LVALUE ID 'doSomething'
+          EXPRESSION
+            LVALUE ID 'true'
+      }
+    ELIF
+      LVALUE ID 'anotherExpr'
+    THEN
+      {
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'doSomethingElse'
+      }
+    ELIF
+      LVALUE ID 'yetAnotherExpr'
+    THEN
+      {
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'doAnotherSomethingElse'
+      }
+    ELSE
+      FUNCCALL
+        OPERATOR
+          LVALUE ID 'thatsAllFolks'
+    FI
+    WHILE
+      EXPRESSION
+        LVALUE ID 'expr'
+      BODY
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'something'
+    LOOP
+      {
+        FUNCCALL
+          OPERATOR
+            LVALUE ID 'yadaYadaYada'
+      }
+    FOR
+      LVALUE
+        LVALUE ID 'lvalue'
+      START
+        LITERAL INTEGER '1'
+      END
+        LITERAL INTEGER '100'
+      BY
+        LITERAL INTEGER '2'
+      DO
+        {
+          ASSIGN
+            LVALUE
+              LVALUE ID 'a'
+            EXPRESSION
+              BINARYOP '+'
+                LVALUE ID 'a'
+                LVALUE ID 'lvalue'
+          IF
+            BINARYOP '<'
+              LVALUE ID 'a'
+              LVALUE ID 'b'
+          THEN
+            NEXT
+          ELSE
+            EXIT
+          FI
+        }
+    RETURN
+      BINARYOP '-'
+        BINARYOP '+'
+          LVALUE ID 'expr'
+          BINARYOP '*'
+            LVALUE ID 'expr'
+            LVALUE ID 'expr'
+        BINARYOP '/'
+          LVALUE ID 'expr'
+          LVALUE ID 'expr'
+    RETURNVOID
+  }
